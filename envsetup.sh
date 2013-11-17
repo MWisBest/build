@@ -1332,6 +1332,14 @@ if [ "x$SHELL" != "x/bin/bash" ]; then
     esac
 fi
 
+if [ ! "$GCC_COLORS" ]; then
+    export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+fi
+
+if [ ! "$TARGET_TOOLS_PREFIX" ]; then
+    export TARGET_TOOLS_PREFIX="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.8-linaro/bin/arm-linux-androideabi-"
+fi
+
 # Execute the contents of any vendorsetup.sh files we can find.
 for f in `test -d device && find device -maxdepth 4 -name 'vendorsetup.sh' 2> /dev/null` \
          `test -d vendor && find vendor -maxdepth 4 -name 'vendorsetup.sh' 2> /dev/null`
